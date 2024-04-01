@@ -2,17 +2,22 @@
 
 Curso de react con vite, en el cual desarrollamos una tienda virtual
 
-## Creacción de carpeta para el proyecto 
+## Creacción de carpeta para el proyecto y configuracción de taildwind
 
 Ejecutamos el comando
 
-`npm create vite@latest`
+```
+
+npm create vite@latest
+
+```
 
 Esto empezara la creación del proyecto el cual nos pedira unas configuraciones simples, la cual es seleccionar el framework que en este casi es react y el tipo de lenguaje a utilizar el cual para este proyecto es javascript.
 
 luego instalamos los paquetes necesarios para el uso de taildwind con los siguientes comando el proyecto
 
 ```
+
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 
@@ -21,6 +26,7 @@ npx tailwindcss init -p
 Y Agregamos las siguientes instrucciones a las archivos de CSS y configuración de
 
 ```
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -38,6 +44,7 @@ export default {
 las anteriores instrucciones son para el archivo tailwind.config.js
 
 ```
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -45,3 +52,13 @@ las anteriores instrucciones son para el archivo tailwind.config.js
 ```
 
 Y estas para nuestro archivo Principal de CSS, igual mente todos estos pasos los podemos verificar en la documentación de taildwind.
+
+## Instalacción de React Router Dom
+
+Usamos este componente de taildwind para  la navegación en nuestra aplicación web, para realizar la instalacción ejecutamos el siguiente comando
+
+```
+
+npm install react-router-dom
+
+```
