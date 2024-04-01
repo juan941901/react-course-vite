@@ -47,7 +47,7 @@ Y estas para nuestro archivo Principal de CSS, igual mente todos estos pasos los
 
 ## Instalacción de React Router Dom
 
-Usamos este componente de taildwind para  la navegación en nuestra aplicación web, para realizar la instalacción ejecutamos el siguiente comando
+Usamos este componente de React para la navegación en nuestra aplicación web, para realizar la instalacción ejecutamos el siguiente comando
 
 ```
 npm install react-router-dom
