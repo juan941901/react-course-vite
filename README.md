@@ -1,8 +1,8 @@
-#Curso React-Vite
+# Curso React-Vite
 
 Curso de react con vite, en el cual desarrollamos una tienda virtual
 
-##Creacción de carpeta para el proyecto 
+## Creacción de carpeta para el proyecto 
 
 Ejecutamos el comando
 
