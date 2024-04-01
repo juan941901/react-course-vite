@@ -52,3 +52,9 @@ Usamos este componente de React para la navegación en nuestra aplicación web, 
 ```
 npm install react-router-dom
 ```
+# NavLink
+
+Usamos NavLink para el paso entre las distintas paginas que tenemos creadas, para poder hacer uso de esta propiedad debemos haber ya instalado el react router dom
+
+enlace para documentación de [NavLink](https://reactrouter.com/en/main/components/nav-link)
+
