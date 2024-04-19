@@ -4,7 +4,7 @@ export const ShopingCarContext = createContext()
 
 export const ShopingCarProvider = ({children}) => {
 
-    //Prodcut Detail - Increment quantity
+    //Shopping Cart - Increment quantity
     const [count, setCount] = useState(0)
 
     //Prodcut Detail - Open/close
@@ -12,8 +12,16 @@ export const ShopingCarProvider = ({children}) => {
     const openProductDetail = () => setIsOpenProductDetail(true)
     const closeProductDetail = () => setIsOpenProductDetail(false)
     
+    //Checkout Side Menu Detail - Open/close
+    const [isCheckoutSideMenu, setIsCheckoutSideMenu] = useState(false)
+    const openCheckoutSideMenu = () => setIsCheckoutSideMenu(true)
+    const closeCheckoutSideMenu = () => setIsCheckoutSideMenu(false)
+
     //Prodcut Detail - Show Product
     const [productToShow, setProductToShow] = useState({})
+    
+    //Shopping Cart - Add produts to cart
+    const [carProducts, setCarProducts] = useState([])
 
     return(
         <ShopingCarContext.Provider value={{
@@ -23,7 +31,13 @@ export const ShopingCarProvider = ({children}) => {
             openProductDetail,
             closeProductDetail,
             productToShow,
-            setProductToShow
+            setProductToShow,
+            carProducts,
+            setCarProducts,
+            isCheckoutSideMenu,
+            setIsCheckoutSideMenu,
+            openCheckoutSideMenu,
+            closeCheckoutSideMenu
         }}>
             {children}
         </ShopingCarContext.Provider>

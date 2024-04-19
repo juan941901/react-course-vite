@@ -6,7 +6,7 @@ import './style.css'
 const ProductDetail = () => {
 
     const context = useContext(ShopingCarContext)
-    
+
     return (
 
         <aside className={`${context.isOpenProductDetail ? 'flex' : 'hidden'} product-detail flex-col fixed right-0 border border-black rounded-lg bg-white`}>
@@ -24,7 +24,7 @@ const ProductDetail = () => {
             <figure className='px-6'>
                     <img
                         className='w-full h-full rounded-lg' 
-                        src={context.productToShow.images}
+                        src={context.productToShow.image}
                         alt={context.productToShow.title}  />
                 </figure>
                 <p className='flex flex-col p-6'>
