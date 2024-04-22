@@ -1,11 +1,19 @@
 import { useContext } from 'react'
 import { XCircleIcon } from '@heroicons/react/24/solid'
 import { ShopingCarContext } from '../Context'
+import OrderCard from '../OrderCard'
 import './styles.css'
 
 const CheckoutSideMenu = () => {
 
     const context = useContext(ShopingCarContext)
+
+    const handleDelete = (id) => {
+
+        const filteredProducts = context.carProducts.filter(product => product.id != id)
+        context.setCarProducts(filteredProducts)
+
+    }
 
     return (
 
@@ -20,6 +28,21 @@ const CheckoutSideMenu = () => {
                         onClick={()=>context.closeCheckoutSideMenu()} 
                     ></XCircleIcon>
                 </div>
+            </div>
+            <div className='px-6 overflow-y-scroll'>
+                {
+                    context.carProducts.map(product =>(
+
+                        <OrderCard 
+                            key={product.id}
+                            id={product.id}
+                            title={product.title}
+                            imgageUrl={product.image}
+                            price={product.price}
+                            handleDelete={handleDelete}
+                        />
+                    ))
+                }
             </div>
         </aside>
 
