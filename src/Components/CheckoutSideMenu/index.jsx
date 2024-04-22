@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { XCircleIcon } from '@heroicons/react/24/solid'
 import { ShopingCarContext } from '../Context'
 import OrderCard from '../OrderCard'
+import { totalPrice } from '../../utils'
 import './styles.css'
 
 const CheckoutSideMenu = () => {
@@ -12,6 +13,20 @@ const CheckoutSideMenu = () => {
 
         const filteredProducts = context.carProducts.filter(product => product.id != id)
         context.setCarProducts(filteredProducts)
+
+    }
+
+    const handleCheckOut = () => {
+
+        const orderToAdd = {
+            date: '01.02.23',
+            products: context.carProducts,
+            totalProducts: context.carProducts.length,
+            totalPrice: totalPrice(context.carProducts)
+        }
+
+        context.setOrder([...context.order,orderToAdd])
+        context.setCarProducts([])
 
     }
 
@@ -29,7 +44,7 @@ const CheckoutSideMenu = () => {
                     ></XCircleIcon>
                 </div>
             </div>
-            <div className='px-6 overflow-y-scroll'>
+            <div className='px-6 overflow-y-scroll flex-1'>
                 {
                     context.carProducts.map(product =>(
 
@@ -43,6 +58,26 @@ const CheckoutSideMenu = () => {
                         />
                     ))
                 }
+            </div>
+            <div 
+                className='px-6 mb-3'
+            >
+                <p 
+                    className='flex justify-between items-center mb-2'
+                >
+                    <span 
+                        className='font-light'
+                    >Total:</span>
+                    <span
+                        className='font-medium text-2xl'
+                    >${totalPrice(context.carProducts)}</span>
+                </p>
+                <button
+                    className='bg-black py-3 w-full text-white rounded-lg' 
+                    onClick={() => handleCheckOut()}
+                >
+                    CheckOut
+                </button>
             </div>
         </aside>
 
