@@ -4,6 +4,18 @@ const OrderCard = props => {
 
     const { id,title, imgageUrl, price,handleDelete } = props
 
+    let renderXmarkIcon
+
+    if(handleDelete){
+
+        renderXmarkIcon = <XCircleIcon
+        onClick={()=> handleDelete(id)}
+        className='h-6 w-6 text-black cursor-pointer'
+    ></XCircleIcon>
+
+    }
+    
+
     return(
 
         <div
@@ -25,10 +37,7 @@ const OrderCard = props => {
                 <p className='text-lg font-medium'>
                     {price}
                 </p>
-                <XCircleIcon
-                    onClick={()=> handleDelete(id)}
-                    className='h-6 w-6 text-black cursor-pointer'
-                ></XCircleIcon>
+                {renderXmarkIcon}
             </div>
         </div>
 
