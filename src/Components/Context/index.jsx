@@ -28,10 +28,10 @@ export const ShopingCarProvider = ({children}) => {
 
     // Get products
     const [items, setItems] = useState(null)
+    const [filteredItems, setFilteredItems] = useState(null)
 
     // Get products
     const [searchByTitle, setSearchByTitle] = useState('')
-    console.log('searchByTitle: ',searchByTitle)
 
     useEffect(() => {
       //fetch('https://api.escuelajs.co/api/v1/products')
@@ -39,6 +39,18 @@ export const ShopingCarProvider = ({children}) => {
       .then(response => response.json())
       .then(data => setItems(data))
     },[]) 
+
+    const filteredItemsByTitle = (items,searchByTitle) => {
+
+        return items?.filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()))
+
+    }
+
+    useEffect(() => {
+
+        if(searchByTitle) setFilteredItems(filteredItemsByTitle(items,searchByTitle))
+        
+      },[items, searchByTitle])
 
     return(
         <ShopingCarContext.Provider value={{
@@ -60,7 +72,8 @@ export const ShopingCarProvider = ({children}) => {
             items,
             setItems,
             searchByTitle,
-            setSearchByTitle
+            setSearchByTitle,
+            filteredItems
         }}>
             {children}
         </ShopingCarContext.Provider>
